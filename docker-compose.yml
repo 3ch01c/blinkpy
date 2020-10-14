@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  blinkpy:
+    image: fronzbot/blinkpy:armv7
+    build:
+      context: .
+    volumes:
+      - windsprint:/media/blink
+volumes:
+  windsprint:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: vers=3.02,mfsymlinks,username=james,password=team198!
+      device: //windsprint/starswirl/Pictures/blink
